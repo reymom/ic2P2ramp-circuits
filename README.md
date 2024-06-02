@@ -4,7 +4,7 @@ This repository contains escrow management contracts for an onramping protocol i
 
 ## Deployments
 
-###In Mantle Sepolia Testnet
+### In Mantle Sepolia Testnet
 
 - ic2p2Ramp: 0x8B1b90637F188541401DeeA100718ca618927E52
 - USDT: 0x67d2d3a45457b69259FB1F8d8178bAE4F6B11b4d
