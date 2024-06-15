@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: Unlicensed
 pragma solidity ^0.8.0;
 
-import { Script, console } from "forge-std/Script.sol";
-import { ZK2Ramp } from "../src/ZK2Ramp.sol";
-import { USDT } from "../src/USDT.sol";
+import {Script, console} from "forge-std/Script.sol";
+import {Ic2P2ramp} from "../src/Ic2P2ramp.sol";
 
 contract Deploy is Script {
     function run() external {
@@ -11,13 +10,9 @@ contract Deploy is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
 
-        // Deploy USDT token
-        USDT usdt = new USDT(owner);
-        console.log("USDT deployed at:", address(usdt));
-
         // Deploy ZK2Ramp
-        ZK2Ramp zk2Ramp = new ZK2Ramp(owner);
-        console.log("ZK2Ramp deployed at:", address(zk2Ramp));
+        Ic2P2ramp ic2P2ramp = new Ic2P2ramp(owner);
+        console.log("Ic2P2ramp deployed at:", address(ic2P2ramp));
 
         vm.stopBroadcast();
     }
