@@ -30,11 +30,11 @@ The `ic2p2Ramp` contract is designed to handle deposits and withdrawals of ERC20
 
 #### Functions
 
-- `deposit(address \_token, uint256 \_amount)`: Allows a user to deposit a specified amount of an ERC20 token into the contract.
-- `withdraw(address \_token, uint256 \_amount)`: Allows a user to withdraw a specified amount of an ERC20 token from the contract.
-- `commitDeposit(address \_offramper, address \_token, uint256 \_amount)`: Allows the owner to commit a deposit from an offramper.
-- `uncommitDeposit(address \_offramper, address \_token, uint256 \_amount)`: Allows the owner to uncommit a previously committed deposit.
-- `releaseFunds(address \_onramper, address \_token, uint256 \_amount)`: Allows the owner to release funds to an onramper. Note: The onlyOwner modifier has been removed from this function to allow the canister to call it.
+- `deposit(address _token, uint256 _amount)`: Allows a user to deposit a specified amount of an ERC20 token into the contract.
+- `withdraw(address _token, uint256 _amount)`: Allows a user to withdraw a specified amount of an ERC20 token from the contract.
+- `commitDeposit(address _offramper, address _token, uint256 _amount)`: Allows the owner to commit a deposit from an offramper.
+- `uncommitDeposit(address _offramper, address _token, uint256 _amount)`: Allows the owner to uncommit a previously committed deposit.
+- `releaseFunds(address _onramper, address _token, uint256 _amount)`: Allows the owner to release funds to an onramper. Note: The onlyOwner modifier has been removed from this function to allow the canister to call it.
 
 #### Events
 
