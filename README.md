@@ -11,7 +11,7 @@ This repository contains escrow management contracts for an onramping protocol i
 
 ## In Sepolia
 
-- ic2p2Ramp: 0xdaE80C0f07Bc847840f7342a8EC9AD78e695c5a3
+- Ic2p2Ramp: 0x42ad57ab757ea55960f7d9805d82fa818683096b
 - USDT: 0x878bfCfbB8EAFA8A2189fd616F282E1637E06bcF
 
 ## In Optimism Testnet
