@@ -14,6 +14,7 @@ contract EscrowManager is Ownable, ReentrancyGuard, IEscrowManager {
 
     constructor(address _owner) Ownable(_owner) {}
 
+    event FeeTracked(address indexed user, address indexed token, uint256 fees);
     event Deposit(address indexed user, address indexed token, uint256 amount);
     event Withdraw(address indexed user, address indexed token, uint256 amount);
     event DepositCommitted(
@@ -109,5 +110,14 @@ contract EscrowManager is Ownable, ReentrancyGuard, IEscrowManager {
             revert Errors.InsufficientFunds();
 
         committed[_offramper][_token] -= _amount;
+    }
+
+    function trackFees(
+        address _receiver,
+        address _token,
+        uint256 _fees
+    ) external nonReentrant onlyOwner {
+        deposits[_receiver][_token] += _fees;
+        emit FeeTracked(_receiver, _token, _fees);
     }
 }

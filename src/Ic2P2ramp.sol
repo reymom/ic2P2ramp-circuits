@@ -108,24 +108,30 @@ contract Ic2P2ramp is Ownable, ReentrancyGuard, IRamp {
         address _offramper,
         address _onramper,
         address _token,
-        uint256 _amount
+        uint256 _amount,
+        uint256 _fees
     ) external nonReentrant onlyIcpEvmCanister {
         if (_onramper == address(0)) revert Errors.ZeroAddress();
         if (_token == address(0)) revert Errors.ZeroAddress();
 
         escrowManager.releaseCommittedFunds(_offramper, _token, _amount);
-        IERC20(_token).safeTransfer(_onramper, _amount);
+        IERC20(_token).safeTransfer(_onramper, _amount - _fees);
+
+        escrowManager.trackFees(icpEvmCanister, _token, _fees);
     }
 
     function releaseBaseCurrency(
         address _offramper,
         address _onramper,
-        uint256 _amount
+        uint256 _amount,
+        uint256 _fees
     ) external nonReentrant onlyIcpEvmCanister {
         if (_onramper == address(0)) revert Errors.ZeroAddress();
 
         escrowManager.releaseCommittedFunds(_offramper, address(0), _amount);
-        payable(_onramper).transfer(_amount);
+        payable(_onramper).transfer(_amount - _fees);
+
+        escrowManager.trackFees(icpEvmCanister, address(0), _fees);
     }
 
     /*
