@@ -6,11 +6,10 @@ This repository contains escrow management contracts for an onramping protocol i
 
 | Network                | Contract Name | Address                                    |
 | ---------------------- | ------------- | ------------------------------------------ |
-| Mantle Sepolia Testnet | Ic2P2Ramp     | 0xdB976eCC0c95Ea84d7bB7249920Fcc73392783F5 |
-| Sepolia                | Ic2P2Ramp     | 0x42ad57ab757ea55960f7d9805d82fa818683096b |
-| Sepolia BaseScan       | Ic2P2Ramp     | 0xfa29381958DD8a2dD86246FC0Ab2932972640580 |
-| Optimism Testnet       | Ic2P2Ramp     | 0x9025e74D23384f664CfEB07F1d8ABd19570758B5 |
-| Polygon zkEVM Testnet  | Ic2P2Ramp     | 0x9025e74D23384f664CfEB07F1d8ABd19570758B5 |
+| Sepolia                | Ic2P2Ramp     | 0x4Dfe1aAf305Bfc857529d26053a9E18f87Bfc7d6 |
+| Base Sepolia           | Ic2P2Ramp     | 0x43550deEd0bC15a1e7918862558d8E46477536bA |
+| Optimism Sepolia       | Ic2P2Ramp     | 0x602475c17c020fe3af7294ec4acf68f93198332c |
+| Mantle Sepolia Testnet | Ic2P2Ramp     | 0x43550deEd0bC15a1e7918862558d8E46477536bA |
 
 ## Contract Details
 
