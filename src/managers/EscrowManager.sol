@@ -39,6 +39,13 @@ contract EscrowManager is Ownable, ReentrancyGuard, IEscrowManager {
         return deposits[_offramper][_token];
     }
 
+    function getCommitted(
+        address _offramper,
+        address _token
+    ) external view returns (uint256) {
+        return committed[_offramper][_token];
+    }
+
     /*********
      * WRITE *
      *********/
