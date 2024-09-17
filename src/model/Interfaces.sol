@@ -68,9 +68,18 @@ interface IRamp {
 
     function depositBaseCurrency() external payable;
 
-    function withdrawToken(address _token, uint256 _amount) external;
+    function withdrawToken(
+        address _offramper,
+        address _token,
+        uint256 _amount,
+        uint256 _fees
+    ) external;
 
-    function withdrawBaseCurrency(uint256 _amount) external;
+    function withdrawBaseCurrency(
+        address _offramper,
+        uint256 _amount,
+        uint256 _fees
+    ) external;
 
     function commitDeposit(
         address _offramper,

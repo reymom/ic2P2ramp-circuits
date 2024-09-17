@@ -68,20 +68,43 @@ contract Ic2P2ramp is Ownable, ReentrancyGuard, IRamp {
     }
 
     function withdrawToken(
+        address _offramper,
         address _token,
-        uint256 _amount
-    ) external nonReentrant {
+        uint256 _amount,
+        uint256 _fees
+    ) external nonReentrant onlyIcpEvmCanister {
+        if (_offramper == address(0)) revert Errors.ZeroAddress();
         if (_token == address(0)) revert Errors.ZeroAddress();
         if (!tokenManager.isValidToken(_token))
             revert Errors.TokenNotAccepted();
 
-        escrowManager.withdraw(msg.sender, _token, _amount);
-        IERC20(_token).safeTransfer(msg.sender, _amount);
+        escrowManager.withdraw(_offramper, _token, _amount);
+
+        // If offramper is the ICP EVM canister, no fees are applied
+        if (_offramper == icpEvmCanister) {
+            IERC20(_token).safeTransfer(_offramper, _amount);
+        } else {
+            IERC20(_token).safeTransfer(_offramper, _amount - _fees);
+            escrowManager.trackFees(icpEvmCanister, _token, _fees);
+        }
     }
 
-    function withdrawBaseCurrency(uint256 _amount) external nonReentrant {
+    function withdrawBaseCurrency(
+        address _offramper,
+        uint256 _amount,
+        uint256 _fees
+    ) external nonReentrant onlyIcpEvmCanister {
+        if (_offramper == address(0)) revert Errors.ZeroAddress();
+
         escrowManager.withdraw(msg.sender, address(0), _amount);
-        payable(msg.sender).transfer(_amount);
+
+        // If offramper is the ICP EVM canister, no fees are applied
+        if (_offramper == icpEvmCanister) {
+            payable(_offramper).transfer(_amount);
+        } else {
+            payable(_offramper).transfer(_amount - _fees);
+            escrowManager.trackFees(icpEvmCanister, address(0), _fees);
+        }
     }
 
     function commitDeposit(
@@ -126,6 +149,7 @@ contract Ic2P2ramp is Ownable, ReentrancyGuard, IRamp {
         uint256 _amount,
         uint256 _fees
     ) external nonReentrant onlyIcpEvmCanister {
+        if (_offramper == address(0)) revert Errors.ZeroAddress();
         if (_onramper == address(0)) revert Errors.ZeroAddress();
 
         escrowManager.releaseCommittedFunds(_offramper, address(0), _amount);
