@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "forge-std/Script.sol";
-import "../src/Ic2P2ramp.sol";
+import "../src/IcRamp.sol";
 
 contract AddValidTokensScript is Script {
     address public contractAddress;
@@ -75,7 +75,7 @@ contract AddValidTokensScript is Script {
         uint256 privateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(privateKey);
 
-        Ic2P2ramp contractInstance = Ic2P2ramp(contractAddress);
+        IcRamp contractInstance = IcRamp(contractAddress);
         contractInstance.addValidTokens(tokenAddresses);
 
         vm.stopBroadcast();
