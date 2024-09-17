@@ -10,7 +10,7 @@ import {TokenManager} from "./managers/TokenManager.sol";
 import {EscrowManager} from "./managers/EscrowManager.sol";
 import {Errors} from "./model/Errors.sol";
 
-contract Ic2P2ramp is Ownable, ReentrancyGuard, IRamp {
+contract IcRamp is Ownable, ReentrancyGuard, IRamp {
     using SafeERC20 for IERC20;
 
     IEscrowManager public immutable escrowManager;
@@ -43,8 +43,19 @@ contract Ic2P2ramp is Ownable, ReentrancyGuard, IRamp {
         return escrowManager.getDeposit(_user, _token);
     }
 
+    function getCommitted(
+        address _user,
+        address _token
+    ) external view returns (uint256) {
+        return escrowManager.getCommitted(_user, _token);
+    }
+
     function isValidToken(address _token) external view returns (bool) {
         return tokenManager.isValidToken(_token);
+    }
+
+    function getValidTokens() external view returns (address[] memory) {
+        return tokenManager.getValidTokens();
     }
 
     /*
@@ -127,7 +138,7 @@ contract Ic2P2ramp is Ownable, ReentrancyGuard, IRamp {
      * ONRAMPER
      */
 
-    function releaseFunds(
+    function releaseToken(
         address _offramper,
         address _onramper,
         address _token,
