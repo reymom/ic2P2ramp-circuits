@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT_DIR="$(dirname "$0")/.."  # Navigate to the root directory
+ROOT_DIR="$(dirname "$0")/../.."  # Navigate to the root directory
 export $(cat "$ROOT_DIR/.env" | xargs)
 
 export CONTRACT_ADDRESS=${CONTRACT_SEPOLIA}

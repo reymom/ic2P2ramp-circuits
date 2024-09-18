@@ -13,9 +13,9 @@ This repository contains escrow management contracts for an onramping protocol i
 
 | Network                | Contract Name | Address                                    |
 | ---------------------- | ------------- | ------------------------------------------ |
-| Sepolia                | IcRamp        | 0xee8Fb85c57104037B90cCA48a8CF2837ee98bEde |
-| Base Sepolia           | IcRamp        | 0x507c4fec857cf87597a5fcebf5b94fd826e4bc73 |
-| Optimism Sepolia       | IcRamp        | 0x7af379c950bc6aa0c3df5f9cd8592f9d6f636d45 |
+| Sepolia                | IcRamp        | 0x5fbF6e9290043a20DfbB796ABf25a5806297DeE1 |
+| Base Sepolia           | IcRamp        | 0x8D890F0020199653b1B8379377F307c172B2C4Ca |
+| Optimism Sepolia       | IcRamp        | 0x3Fe6AD20885ef84Da31B8b857ECA55976BE95CA0 |
 | Mantle Sepolia Testnet | IcRamp        | 0xfb19542b43832cfc9e906af846f05a157bc4e4c3 |
 
 ## Contract Details
