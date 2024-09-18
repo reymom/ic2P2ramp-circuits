@@ -107,7 +107,7 @@ contract IcRamp is Ownable, ReentrancyGuard, IRamp {
     ) external nonReentrant onlyIcpEvmCanister {
         if (_offramper == address(0)) revert Errors.ZeroAddress();
 
-        escrowManager.withdraw(msg.sender, address(0), _amount);
+        escrowManager.withdraw(_offramper, address(0), _amount);
 
         // If offramper is the ICP EVM canister, no fees are applied
         if (_offramper == icpEvmCanister) {
