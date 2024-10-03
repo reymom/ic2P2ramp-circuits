@@ -13,4 +13,4 @@ export CONTRACT_ADDRESS=${CONTRACT_OP_SEPOLIA}
 forge script script/SetIcpEvmCanister.s.sol:SetIcpEvmCanisterScript --rpc-url ${OP_SEPOLIA_RPC_URL} --broadcast --etherscan-api-key ${OP_ETHERSCAN_API_KEY}
 
 export CONTRACT_ADDRESS=${CONTRACT_MANTLE_SEPOLIA}
-forge script script/SetIcpEvmCanister.s.sol:SetIcpEvmCanisterScript --rpc-url ${MANTLE_SEPOLIA_RPC_URL} --broadcast --etherscan-api-key ${ETHERSCAN_API_KEY}
+forge script script/SetIcpEvmCanister.s.sol:SetIcpEvmCanisterScript --rpc-url ${MANTLE_SEPOLIA_RPC_URL} --broadcast --etherscan-api-key ${ETHERSCAN_API_KEY} --gas-limit 100000000000 --gas-price 20000000 --skip-simulation

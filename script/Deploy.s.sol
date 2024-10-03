@@ -7,6 +7,7 @@ import {IcRamp} from "../src/IcRamp.sol";
 contract Deploy is Script {
     function run() external {
         address owner = vm.envAddress("OWNER");
+        console.log("Owner:", owner);
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
 
